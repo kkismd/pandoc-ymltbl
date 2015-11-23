@@ -1,16 +1,17 @@
 pandoc-ymltbl
 -------------
 
-source block with language identifier `ymltbl`.
-will turn into table notation.
+a Source block with language identifier `ymltbl`.
 
 ````ymltbl
 -
-  - あいえお
+  - A
+  - False
   - False
   - False
 -
-  - This is a pen.
+  - B
+  - True
   - False.
   - False
 -
@@ -18,7 +19,17 @@ will turn into table notation.
   - True
   - False
 -
+  - A and B
   - True
   - True
   - True
 ````
+
+will converted to table notation.
+
+| A     | B     | A and B |
+|-------|-------|---------|
+| False | False | False   |
+| True  | False | False   |
+| False | True  | False   |
+| True  | True  | True    |
