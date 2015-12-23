@@ -1,9 +1,56 @@
 #! /usr/bin/env python
+# coding: utf-8
 
-from pandocfilters import toJSONFilter, Emph, Para
+import pandocfilters as pandoc
+from pprint import pprint
+import yaml
 
-def behead(key, value, format, meta):
-  print(key)
+def walk(key, value, format, meta):
+  if key == 'CodeBlock' and value[0][1][0] == u'ymltbl':
+    [[ident, classes, keyvals], code] = value
+    data = yaml.load(code)
+    return array2tbl(data)
+
+def array2tbl(data):
+  colsize = len(data)
+  head = data[0]
+  body = data[1:]
+  return pandoc.Table(
+    caption(),
+    aligns(colsize),
+    widths(colsize),
+    headers(head),
+    rows(body))
+
+def caption():
+  "テーブルのキャプション"
+  return []
+
+def aligns(size):
+  "各カラムのアライン"
+  def alignDefault(): return { "t": "AlignDefault",  "c": [] }
+  return [alignDefault() for x in range(size)]
+
+def widths(size):
+  "各カラムの幅"
+  return [0 for x in range(size)]
+
+def headers(cols):
+  return [parse(col) for col in cols]
+
+def rows(data):
+  def plainStr(s): return [pandoc.Plain([pandoc.Str(s)])]
+  return [ [ parse(col) for col in cols] for cols in data]
+
+def parse(string):
+  result = []
+  tokens = unicode(string).split(" ")
+  objects = [pandoc.Str(token) for token in tokens]
+  for obj in objects:
+    result.append(obj)
+    result.append(pandoc.Space())
+  result = result[:-1]
+  return [pandoc.Plain(result)]
 
 if __name__ == "__main__":
-  toJSONFilter(behead)
+  pandoc.toJSONFilter(walk)

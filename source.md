@@ -1,8 +1,12 @@
 Example
 ------------
-Following table was converted by `ymltbl`. 
+Following table was converted by `ymltbl`.
 
 ````ymltbl
+-
+  - A
+  - B
+  - エー and B
 -
   - あいえお
   - False
