@@ -6,26 +6,28 @@ a Source block with language identifier `ymltbl`.
 ````ymltbl
 -
   - A
-  - False
-  - False
-  - False
--
   - B
-  - True
-  - False.
-  - False
--
-  - False
-  - True
-  - False
--
   - A and B
+-
+  - False
+  - False
+  - False
+-
+  - True
+  - False
+  - False
+-
+  - False
+  - True
+  - False
+-
   - True
   - True
   - True
 ````
 
-will converted to table notation.
+...will converted to table notation.
+(first row as headers.)
 
 | A     | B     | A and B |
 |-------|-------|---------|
@@ -33,3 +35,9 @@ will converted to table notation.
 | True  | False | False   |
 | False | True  | False   |
 | True  | True  | True    |
+
+Invoke filter command like
+
+```
+pandoc source.md --filter ./ymltbl.py -t markdown_github -o result.md
+```
