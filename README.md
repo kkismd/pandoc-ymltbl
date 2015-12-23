@@ -25,7 +25,6 @@ a Source block with language identifier `ymltbl`.
   - True
   - True
   - True
-````
 ~~~~
 
 ...will converted to table notation.
