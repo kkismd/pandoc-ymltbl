@@ -6,14 +6,14 @@ Following table was converted by `ymltbl`.
 -
   - A
   - B
-  - エー and B
+  - A and B
 -
-  - あいえお
   - False
   - False
+  - False
 -
-  - This is a pen.
-  - False.
+  - True
+  - False
   - False
 -
   - False

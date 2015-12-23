@@ -2,17 +2,17 @@
 # coding: utf-8
 
 import pandocfilters as pandoc
-from pprint import pprint
 import yaml
 
 def walk(key, value, format, meta):
-  if key == 'CodeBlock' and value[0][1][0] == u'ymltbl':
+  if key == 'CodeBlock':
     [[ident, classes, keyvals], code] = value
-    data = yaml.load(code)
-    return array2tbl(data)
+    if ident == u'ymltbl':
+      data = yaml.load(code)
+      return array2tbl(data)
 
 def array2tbl(data):
-  colsize = len(data)
+  colsize = len(data[0])
   head = data[0]
   body = data[1:]
   return pandoc.Table(
