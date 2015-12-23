@@ -23,16 +23,13 @@ def array2tbl(data):
     rows(body))
 
 def caption():
-  "テーブルのキャプション"
   return []
 
 def aligns(size):
-  "各カラムのアライン"
   def alignDefault(): return { "t": "AlignDefault",  "c": [] }
   return [alignDefault() for x in range(size)]
 
 def widths(size):
-  "各カラムの幅"
   return [0 for x in range(size)]
 
 def headers(cols):
