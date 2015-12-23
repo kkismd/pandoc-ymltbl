@@ -3,6 +3,7 @@ pandoc-ymltbl
 
 a Source block with language identifier `ymltbl`.
 
+~~~~
 ````ymltbl
 -
   - A
@@ -25,6 +26,7 @@ a Source block with language identifier `ymltbl`.
   - True
   - True
 ````
+~~~~
 
 ...will converted to table notation.
 (first row as headers.)
