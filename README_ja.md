@@ -4,7 +4,7 @@ pandoc-ymltbl
 `ymltbl`という識別子をもつコードブロックを、
 
 ~~~~
-````ymltbl
+```ymltbl
 -
   - 熊本弁
   - 訳語

@@ -4,7 +4,7 @@ pandoc-ymltbl
 a Source block with language identifier `ymltbl`.
 
 ~~~~
-````ymltbl
+```ymltbl
 -
   - A
   - B
